@@ -65,9 +65,9 @@ int main() {
         auto start_sequential = std::chrono::high_resolution_clock::now();
 
         for (size_t i = 0; i < num_pairs; ++i) {
-            vectors1[i] = generate_random_vector(vector_size);
-            vectors2[i] = generate_random_vector(vector_size);
-            results[i] = compute_dot_product(vectors1[i], vectors2[i]);
+            vectors1[i] = generate_vector(vector_size);
+            vectors2[i] = generate_vector(vector_size);
+            results[i] = dot_product(vectors1[i], vectors2[i]);
         }
 
         auto end_sequential = std::chrono::high_resolution_clock::now();
