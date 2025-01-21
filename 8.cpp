@@ -6,7 +6,7 @@
 #include <chrono>
 
 // Функция для генерации случайного вектора
-std::vector<double> generate_random_vector(size_t vector_size) {
+std::vector<double> generate_vector(size_t vector_size) {
     std::vector<double> vec(vector_size);
     for (size_t j = 0; j < vector_size; ++j) {
         vec[j] = static_cast<double>(std::rand()) / RAND_MAX;
@@ -15,7 +15,7 @@ std::vector<double> generate_random_vector(size_t vector_size) {
 }
 
 // Функция для вычисления скалярного произведения
-double compute_dot_product(const std::vector<double>& vec1, const std::vector<double>& vec2) {
+double dot_product(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double dot_product = 0.0;
     for (size_t i = 0; i < vec1.size(); ++i) {
         dot_product += vec1[i] * vec2[i];
@@ -40,8 +40,8 @@ int main() {
             {
                 // Генерация векторов
                 for (size_t i = 0; i < num_pairs; ++i) {
-                    vectors1[i] = generate_random_vector(vector_size);
-                    vectors2[i] = generate_random_vector(vector_size);
+                    vectors1[i] = generate_vector(vector_size);
+                    vectors2[i] = generate_vector(vector_size);
                 }
             }
 
@@ -50,10 +50,9 @@ int main() {
                 // Вычисление скалярного произведения
                 for (size_t i = 0; i < num_pairs; ++i) {
                     while (vectors1[i].empty() || vectors2[i].empty()) {
-                        // Active waiting
                     }
 
-                    results[i] = compute_dot_product(vectors1[i], vectors2[i]);
+                    results[i] = dot_product(vectors1[i], vectors2[i]);
                 }
             }
         }
