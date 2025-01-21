@@ -1,0 +1,6 @@
+env/
+.ipynb_checkpoints/
+min_max
+num_of_threads
+a.out
+
